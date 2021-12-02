@@ -1984,11 +1984,12 @@ def process_input():
     index = 0
     number_of_increases = 0
     previous_sliding_window_value = 0
+    sliding_window_value = 0
     for value in input_values:
         if index + 2 < len(input_values):
             sliding_window_value = value + input_values[index + 1] + input_values[index + 2]
             index += 1
-        if previous_sliding_window_value > 0 and previous_sliding_window_value < sliding_window_value:
+        if 0 < previous_sliding_window_value < sliding_window_value:
             number_of_increases += 1
         previous_sliding_window_value = sliding_window_value
     return number_of_increases
